@@ -5,7 +5,7 @@ function OpenSource() {
     <div className="OpenSourse">
       <a
         className="fetter__link"
-        href="https://github.com/Yko-koshka/weather-app"
+        href="https://github.com/Yko-koshka/react-weather-app"
       >
         Open-source code
       </a>
