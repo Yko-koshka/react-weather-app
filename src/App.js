@@ -1,23 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
+import Form from "./Form";
+import ShowDegree from "./ShowDegree";
+import Days from "./Days";
+import OpenSource from "./OpenSource";
+
+import "./App.css";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className="container">
+        <h1 className="weather__title">Weather</h1>
+        <h2 className="weather__subtitle">Select a city</h2>
+      </div>
+      <Form />
+      <ShowDegree />
+      <Days />
+      <OpenSource />
     </div>
   );
 }
