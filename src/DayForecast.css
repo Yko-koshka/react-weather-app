@@ -1,9 +1,5 @@
-.DayForecast {
-  display: flex;
-  justify-content: space-around;
-}
 .DayForecast .card {
-  width: 6rem;
+  width: 4rem;
   border: 1px solid #c1baba7d;
   margin-bottom: 42px;
   box-shadow: 1px 4px 13px gainsboro;
@@ -21,10 +17,6 @@
   position: relative;
   top: -30px;
   font-weight: 800;
-}
-
-.DayForecast .card-text:last-child {
-  opacity: 0.5;
 }
 
 .DayForecast .card-img-top {

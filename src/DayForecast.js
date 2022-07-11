@@ -1,6 +1,8 @@
 import React from "react";
 import WeatherIcon from "./WeatherIcon";
 
+import "./DayForecast.css";
+
 function DayForecast(props) {
   function getMaxTemperature() {
     let temp = Math.round(props.data.temp.max);
@@ -21,14 +23,16 @@ function DayForecast(props) {
     return days[day];
   }
   return (
-    <div className="card">
-      <h6 className="card-title">{day()}</h6>
-      <div>
-        <WeatherIcon code={props.data.weather[0].icon} size={45} />
-      </div>
-      <div className="card-body d-flex justify-content-between">
-        <p className="card-temperature-max">{getMaxTemperature()}°C</p>
-        <p className="card-temperature-min">{getMinTemperature()}°C</p>
+    <div className="DayForecast mt-5">
+      <div className="card">
+        <h6 className="card-title">{day()}</h6>
+        <div>
+          <WeatherIcon code={props.data.weather[0].icon} size={45} />
+        </div>
+        <div className="card-body">
+          <p className="card-temperature-max">{getMaxTemperature()}C</p>
+          <p className="card-temperature-min">{getMinTemperature()}C</p>
+        </div>
       </div>
     </div>
   );
