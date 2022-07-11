@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import ShowWeather from "./ShowWeather";
+import Days from "./Days";
 
 import "./Form.css";
 
@@ -9,7 +10,6 @@ function Form(props) {
   const [city, setCity] = useState(props.defaultCity);
 
   function getWeeather(response) {
-    console.log(response.data);
     setWeatherData({
       ready: true,
       coordinates: response.data.coord,
@@ -29,7 +29,6 @@ function Form(props) {
   }
 
   function cityChange(event) {
-    console.log(event.target.value);
     setCity(event.target.value);
   }
 
@@ -53,6 +52,7 @@ function Form(props) {
           <input className="btn btn-danger" type="submit" value="Search" />
         </form>
         <ShowWeather data={weatherData} />
+        <Days coordinates={weatherData.coordinates} />
       </div>
     );
   } else {

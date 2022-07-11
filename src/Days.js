@@ -1,46 +1,40 @@
-import "./Days.css";
+import React, { useState } from "react";
+import DayForecast from "./DayForecast";
+import axios from "axios";
 
-function Days() {
-  let days = [
-    {
-      day: "Monday",
-      degree: "20",
-    },
-    {
-      day: "Tuesday",
-      degree: "20",
-    },
-    {
-      day: "Wednesday",
-      degree: "20",
-    },
-    {
-      day: "Thursday",
-      degree: "20",
-    },
-    {
-      day: "Friday",
-      degree: "20",
-    },
-  ];
+function Days(props) {
+  let [loaded, setLoaded] = useState(false);
+  let [days, setDays] = useState(null);
 
-  return (
-    <div className="Days">
-      {days.map(function (day, index) {
-        return (
-          <div key={index} className="col d-flex justify-content-center mt-5">
-            <div className="card">
-              <h6 className="card-title">{day.day}</h6>
-              <img src="" className="card-img-top" alt="" />
-              <div className="card-body">
-                <p className="card-text">{day.degree}°C</p>
-              </div>
-            </div>
-          </div>
-        );
-      })}
-    </div>
-  );
+  function handleResponse(response) {
+    setDays(response.data.daily);
+    setLoaded(true);
+  }
+
+  if (loaded) {
+    return (
+      <div className="Days">
+        <div className="row">
+          {days.map(function (dailyForecast, index) {
+            if (index < 5) {
+              return (
+                <div className="col" key={index}>
+                  <DayForecast data={dailyForecast} />
+                </div>
+              );
+            }
+          })}
+        </div>
+      </div>
+    );
+  } else {
+    let apiKey = "b008b611bf4075eb12ea48ff1a84b599";
+    let lon = props.coordinates.lon;
+    let lat = props.coordinates.lat;
+    let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`;
+    axios.get(apiUrl).then(handleResponse);
+    return null;
+  }
 }
 
 export default Days;

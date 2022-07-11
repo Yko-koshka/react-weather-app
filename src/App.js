@@ -1,5 +1,4 @@
 import Form from "./Form";
-import Days from "./Days";
 import OpenSource from "./OpenSource";
 
 import "./App.css";
@@ -12,7 +11,6 @@ function App() {
         <h2 className="weather__subtitle">Select a city</h2>
       </div>
       <Form defaultCity="New York" />
-      <Days />
       <OpenSource />
     </div>
   );

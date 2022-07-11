@@ -7,7 +7,7 @@ import "./ShowWeather.css";
 function ShowWeather(props) {
   return (
     <div className="ShowWeather">
-      <div className="row weather-show mt-5">
+      <div className="row weather-show mt-5 d-flex align-items-center">
         <ul className="col">
           <li className="weather-show__city">{props.data.city}</li>
           <li>
