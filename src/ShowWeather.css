@@ -1,15 +1,4 @@
-.ShowWeather .weather-show {
-  display: flex;
-  justify-content: space-around;
-  margin-top: 40px;
-}
-
-.ShowWeather .weather-show__city,
-.weather-show__degree {
+.ShowWeather .weather-show__city {
   font-family: "Oleo Script", cursive;
   font-size: 30px;
-}
-
-.ShowWeather .weather-show__img {
-  max-width: 140px;
 }

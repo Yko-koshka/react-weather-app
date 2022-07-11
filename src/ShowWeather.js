@@ -1,20 +1,26 @@
 import FormattedDate from "./FormattedDate";
 import WeatherIcon from "./WeatherIcon";
+import WeatherTemperature from "./WeatherTemperature";
 
 import "./ShowWeather.css";
 
 function ShowWeather(props) {
   return (
     <div className="ShowWeather">
-      <div className="weather-show">
-        <div>
-          <div className="weather-show__city">{props.data.city}</div>
-          <FormattedDate date={props.data.date} />
-          <div className="weather-show__degree"></div>
-          <span className="weather-show__c">{props.data.temperature}°C</span>
+      <div className="row weather-show mt-5">
+        <ul className="col">
+          <li className="weather-show__city">{props.data.city}</li>
+          <li>
+            <FormattedDate date={props.data.date} />
+          </li>
+          <li>
+            <WeatherTemperature celsius={props.data.temperature} />
+          </li>
+        </ul>
+        <div className="col">
+          <WeatherIcon code={props.data.icon} size={85} />
         </div>
-        <WeatherIcon code={props.data.icon} size={52} />
-        <ul>
+        <ul className="col">
           <li>Humidity: {props.data.humidity}%</li>
           <li>Wind: {props.data.wind}km/h</li>
         </ul>

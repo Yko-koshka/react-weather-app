@@ -1,0 +1,10 @@
+.WeatherTemperature .weather-show__degree {
+  font-family: "Oleo Script", cursive;
+  font-size: 30px;
+}
+
+.WeatherTemperature .show-degree {
+  position: relative;
+  top: -40px;
+  right: -48px;
+}
