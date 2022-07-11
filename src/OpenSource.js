@@ -4,7 +4,7 @@ function OpenSource() {
   return (
     <div className="OpenSourse">
       <a
-        className="fetter__link"
+        className="footer__link"
         href="https://github.com/Yko-koshka/react-weather-app"
       >
         Open-source code
