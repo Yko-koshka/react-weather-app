@@ -2,3 +2,31 @@
   display: flex;
   justify-content: space-around;
 }
+.Days .card {
+  width: 6rem;
+  border: 1px solid #c1baba7d;
+  margin-bottom: 42px;
+  box-shadow: 1px 4px 13px gainsboro;
+}
+
+.Days .card-body {
+  padding: 0.25rem;
+}
+
+.Days .card-title {
+  position: relative;
+  top: -30px;
+  font-weight: 800;
+}
+
+.Days .card-text:last-child {
+  opacity: 0.5;
+}
+
+.Days .card-img-top {
+  padding: 10px;
+}
+
+.Days .card-text {
+  font-family: "Oleo Script", cursive;
+}
