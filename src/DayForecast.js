@@ -1,7 +1,7 @@
-import React from "react";
-import WeatherIcon from "./WeatherIcon";
+import React from 'react';
+import WeatherIcon from './WeatherIcon';
 
-import "./DayForecast.css";
+import './DayForecast.css';
 
 function DayForecast(props) {
   function getMaxTemperature() {
@@ -18,7 +18,7 @@ function DayForecast(props) {
     let date = new Date(props.data.dt * 1000);
     let day = date.getDay();
 
-    let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+    let days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
 
     return days[day];
   }

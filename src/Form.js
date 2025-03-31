@@ -1,15 +1,15 @@
-import React, { useState } from "react";
-import axios from "axios";
-import ShowWeather from "./ShowWeather";
-import Days from "./Days";
+import React, { useState } from 'react';
+import axios from 'axios';
+import ShowWeather from './ShowWeather';
+import Days from './Days';
 
-import "./Form.css";
+import './Form.css';
 
 function Form(props) {
   const [weatherData, setWeatherData] = useState({ ready: false });
   const [city, setCity] = useState(props.defaultCity);
 
-  function getWeeather(response) {
+  function getWeather(response) {
     setWeatherData({
       ready: true,
       coordinates: response.data.coord,
@@ -33,9 +33,9 @@ function Form(props) {
   }
 
   function search() {
-    let apiKey = "b008b611bf4075eb12ea48ff1a84b599";
+    let apiKey = 'b008b611bf4075eb12ea48ff1a84b599';
     let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
-    axios.get(apiUrl).then(getWeeather);
+    axios.get(apiUrl).then(getWeather);
   }
 
   if (weatherData.ready) {
@@ -46,7 +46,7 @@ function Form(props) {
             className="weather-form__text"
             autoFocus="on"
             type="search"
-            placeholdor="City"
+            placeholder="City"
             onChange={cityChange}
           />
           <input className="btn btn-danger" type="submit" value="Search" />
@@ -57,7 +57,7 @@ function Form(props) {
     );
   } else {
     search();
-    return "Loading...";
+    return 'Loading...';
   }
 }
 

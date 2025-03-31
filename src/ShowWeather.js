@@ -1,8 +1,8 @@
-import FormattedDate from "./FormattedDate";
-import WeatherIcon from "./WeatherIcon";
-import WeatherTemperature from "./WeatherTemperature";
+import FormattedDate from './FormattedDate';
+import WeatherIcon from './WeatherIcon';
+import WeatherTemperature from './WeatherTemperature';
 
-import "./ShowWeather.css";
+import './ShowWeather.css';
 
 function ShowWeather(props) {
   return (

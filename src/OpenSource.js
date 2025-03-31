@@ -1,4 +1,4 @@
-import "./OpenSource.css";
+import './OpenSource.css';
 
 function OpenSource() {
   return (

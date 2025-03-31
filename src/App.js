@@ -1,7 +1,7 @@
-import Form from "./Form";
-import OpenSource from "./OpenSource";
+import Form from './Form';
+import OpenSource from './OpenSource';
 
-import "./App.css";
+import './App.css';
 
 function App() {
   return (
