@@ -9,7 +9,7 @@ function OpenSource() {
       >
         Open-source code
       </a>
-      <span>by Hanna Leheza</span>
+      <p>by Hanna Leheza</p>
     </div>
   );
 }

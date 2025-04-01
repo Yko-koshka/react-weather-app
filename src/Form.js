@@ -12,14 +12,14 @@ function Form(props) {
   function getWeather(response) {
     setWeatherData({
       ready: true,
-      coordinates: response.data.coord,
-      temperature: response.data.main.temp,
-      humidity: response.data.main.humidity,
-      date: new Date(response.data.dt * 1000),
-      description: response.data.weather[0].description,
-      icon: response.data.weather[0].icon,
-      wind: response.data.wind.speed,
-      city: response.data.name,
+      coordinates: response.data.location,
+      temperature: response.data.current.temp_c,
+      humidity: response.data.current.humidity,
+      date: new Date(response.data.location.localtime),
+      description: response.data.current.condition.text,
+      icon: response.data.current.condition.code,
+      wind: response.data.current.wind_kph,
+      city: response.data.location.name,
     });
   }
 
@@ -33,8 +33,8 @@ function Form(props) {
   }
 
   function search() {
-    let apiKey = 'b008b611bf4075eb12ea48ff1a84b599';
-    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+    let apiKey = '8217bae2e351452bb8985714250104';
+    let apiUrl = `https://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${city}&aqi=no&alerts=no`;
     axios.get(apiUrl).then(getWeather);
   }
 

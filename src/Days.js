@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import DayForecast from './DayForecast';
 import axios from 'axios';
 
@@ -6,45 +6,38 @@ function Days(props) {
   let [loaded, setLoaded] = useState(false);
   let [days, setDays] = useState(null);
 
-  useEffect(() => {
-    setLoaded(false);
-  }, [props.coordinates]);
-
-  function handleResponse(response) {
-    setDays(response.data.daily);
-    setLoaded(true);
-  }
-
-  function Load() {
-    let apiKey = 'b008b611bf4075eb12ea48ff1a84b599';
+  const loadWeather = useCallback(() => {
+    let apiKey = '8217bae2e351452bb8985714250104';
     let lon = props.coordinates.lon;
     let lat = props.coordinates.lat;
-    let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`;
-    axios.get(apiUrl).then(handleResponse);
+    let apiUrl = `https://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${lat},${lon}&days=7&aqi=no&alerts=no`;
+    axios.get(apiUrl).then((response) => {
+      setDays(response.data.forecast.forecastday);
+      setLoaded(true);
+    });
+  }, [props.coordinates]);
 
-    return null;
-  }
+  useEffect(() => {
+    setLoaded(false);
+    loadWeather();
+  }, [loadWeather]);
 
   if (loaded) {
     return (
       <div className="Days">
         <div className="row">
-          {days.map(function (dailyForecast, index) {
-            if (index < 6) {
-              return (
-                <div className="col" key={index}>
-                  <DayForecast data={dailyForecast} />
-                </div>
-              );
-            } else {
-              return null;
-            }
-          })}
+          {days.map((dailyForecast, index) =>
+            index < 7 ? (
+              <div className="col" key={index}>
+                <DayForecast data={dailyForecast} />
+              </div>
+            ) : null
+          )}
         </div>
       </div>
     );
   } else {
-    Load();
+    return <p>Uploading the forecast...</p>;
   }
 }
 
