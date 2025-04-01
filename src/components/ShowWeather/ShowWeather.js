@@ -1,6 +1,6 @@
-import FormattedDate from './FormattedDate';
-import WeatherIcon from './WeatherIcon';
-import WeatherTemperature from './WeatherTemperature';
+import FormattedDate from '../../utils/FormattedDate';
+import WeatherIcon from '../WeatherIcon/WeatherIcon';
+import WeatherTemperature from '../WeatherTemperature/WeatherTemperature';
 
 import './ShowWeather.css';
 

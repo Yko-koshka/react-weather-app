@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import ShowWeather from './ShowWeather';
-import Days from './Days';
+import ShowWeather from '../ShowWeather/ShowWeather';
+import Days from '../Days/Days';
 
 import './Form.css';
 

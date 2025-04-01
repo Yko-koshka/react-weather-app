@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import DayForecast from './DayForecast';
+import DayForecast from '../DayForecast/DayForecast';
 import axios from 'axios';
 
 function Days(props) {
