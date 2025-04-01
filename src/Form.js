@@ -7,7 +7,9 @@ import './Form.css';
 
 function Form(props) {
   const [weatherData, setWeatherData] = useState({ ready: false });
-  const [city, setCity] = useState(props.defaultCity);
+  const [city, setCity] = useState(() => {
+    return localStorage.getItem('city') || props.defaultCity;
+  });
 
   function getWeather(response) {
     setWeatherData({
@@ -21,6 +23,7 @@ function Form(props) {
       wind: response.data.current.wind_kph,
       city: response.data.location.name,
     });
+    localStorage.setItem('city', response.data.location.name);
   }
 
   function citySubmit(event) {
